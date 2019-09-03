@@ -33,7 +33,10 @@ class Color {
   */
   constructor(args) {
     if (typeof args == 'number' && args >= 0x000000 && args <= 0xFFFFFF) { // if the argument is an integer (in pure hexadecimal format)
-      // TODO: Check that hex unpacking method and apply it to here.
+      let rgb = hexToRGB(args);
+      this.r = rgb.r
+      this.g = rgb.g
+      thid.b = rgb.b
     } else if (typeof args == 'object') { // if the arguments are specified using dictionary values
       if (typeof args.r == 'number' && typeof args.g == 'number' && typeof args.b == 'number' && Object.values(args).every(x => x >= 0 && x <= 255)) {
         this.r = args.r;
@@ -98,6 +101,14 @@ function invert(col) {
     })
   }
   throw TypeError("Expected type of 'Color', instead got " + typeof col);
+}
+
+function hexToRGB(hex){
+  return {
+    r: (hex >> 16) & 0xFF,
+    g: (hex >> 8) & 0xFF,  
+    b: hex & 0xFF,
+  }
 }
 
 /* ---- Supporter functions ---- */
