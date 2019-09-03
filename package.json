@@ -1,0 +1,19 @@
+{
+  "name": "colorlab",
+  "version": "1.0.0",
+  "description": "A javascript library which could do many color manipulations",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "color",
+    "lab",
+    "colors"
+  ],
+  "author": "Seniru Pasan",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  }
+}

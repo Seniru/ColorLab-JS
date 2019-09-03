@@ -1,2 +1,8 @@
-# ColorLab
- A javascript library which could do many color manipulations
+# ColorLab.js
+
+> A javascript library which could do many color manipulations
+
+### Features
+
+ - Lightweight
+ - 
