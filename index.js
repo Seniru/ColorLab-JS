@@ -54,6 +54,8 @@ class Color {
         this.r = parseInt((vals[1] + vals[1]), 16);
         this.g = parseInt((vals[2] + vals[2]), 16);
         this.b = parseInt((vals[3] + vals[3]), 16);
+      } else {
+        throw TypeError("Got unexpcted types or the format of the arguments are incorrect!");
       }
     } else {
       throw TypeError("Got unexpcted types or the format of the arguments are incorrect!");
