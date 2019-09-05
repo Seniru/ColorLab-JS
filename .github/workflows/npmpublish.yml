@@ -19,8 +19,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm install -g codecov
-      - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
-      - codecov
+      - run: istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+      - run: codecov
 
   publish-npm:
     needs: build
