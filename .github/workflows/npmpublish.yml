@@ -18,7 +18,4 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
-  Publish to npm:
-    uses: pascalgn/npm-publish-action@1.0.0
-
-  
+ 
