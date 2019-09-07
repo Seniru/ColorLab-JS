@@ -1,5 +1,21 @@
 name: Node.js Package
 
+workflow "publish to npm on push" {
+  on = "push"
+  resolves = ["npm publish"]
+}
+
+action "npm publish" {
+  uses = "pascalgn/npm-publish-action@6fff82ba2c6462bf4f6940168afe65303bbdbd56"
+  secrets = ["GITHUB_TOKEN", "NPM_AUTH_TOKEN"]
+  env = {
+    TAG_NAME = "v%s"
+    TAG_MESSAGE = "v%s"
+    COMMIT_PATTERN = "^Release (\\S+)"
+  }
+}
+
+
 on:
   pull_request:
     branches:
@@ -18,30 +34,7 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  Publish to npm:
+    uses: pascalgn/npm-publish-action@1.0.0
 
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: 'Seniru'
-      - run: npm login
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  
