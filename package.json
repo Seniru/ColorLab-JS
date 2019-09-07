@@ -1,6 +1,6 @@
 {
-  "name": "colorlab",
-  "version": "1.0.0",
+  "name": "colorlab-js",
+  "version": "0.1.0",
   "description": "A javascript library which could do many color manipulations",
   "main": "index.js",
   "scripts": {
@@ -9,11 +9,24 @@
   "keywords": [
     "color",
     "lab",
-    "colors"
+    "colors",
+    "palette"
   ],
   "author": "Seniru Pasan",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^6.2.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seniru/ColorLab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Seniru/ColorLab/issues"
+  },
+  "homepage": "https://github.com/Seniru/ColorLab#readme"
 }
