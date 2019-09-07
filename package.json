@@ -1,6 +1,6 @@
 {
   "name": "colorlab-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A javascript library which could do many color manipulations",
   "main": "index.js",
   "scripts": {
