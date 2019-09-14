@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "build": "npm test & npm link & npm publish"
+    "build": "npm test & npm link & npm pack"
   },
   "keywords": [
     "color",
