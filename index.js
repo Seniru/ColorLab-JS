@@ -36,7 +36,7 @@ class Color {
       let rgb = hexToRGB(args);
       this.r = rgb.r
       this.g = rgb.g
-      thid.b = rgb.b
+      this.b = rgb.b
     } else if (typeof args == 'object') { // if the arguments are specified using dictionary values
       if (typeof args.r == 'number' && typeof args.g == 'number' && typeof args.b == 'number' && Object.values(args).every(x => x >= 0 && x <= 255)) {
         this.r = args.r;
@@ -82,8 +82,20 @@ class Color {
   /**
     @returns {string} A `string` version of this color
   */
-  toString() {
-    return "#" + getHex(this.r) + getHex(this.g) + getHex(this.b);
+  toString(channel = "") {
+    switch (channel.toLowerCase()) {
+      case "rgb":
+        return `rgb(${this.r}, ${this.g}, ${this.b})`;
+        // TODO: Add support to convert into other channels
+      case "hex":
+      case "hexadeimal":
+      default:
+        return `#${getHex(this.r)}${getHex(this.g)}${getHex(this.b)}`;
+    }
+  }
+
+  invert() {
+    return invert(this);
   }
 }
 
@@ -105,10 +117,10 @@ function invert(col) {
   throw TypeError("Expected type of 'Color', instead got " + typeof col);
 }
 
-function hexToRGB(hex){
+function hexToRGB(hex) {
   return {
     r: (hex >> 16) & 0xFF,
-    g: (hex >> 8) & 0xFF,  
+    g: (hex >> 8) & 0xFF,
     b: hex & 0xFF,
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "colorlab-js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A javascript library which could do many color manipulations",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,13 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "package-lock.json"
+  ],
   "dependencies": {},
   "repository": {
     "type": "git",
