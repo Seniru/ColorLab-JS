@@ -4,13 +4,13 @@
   "description": "A javascript library which could do many color manipulations",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "npm test & npm link & npm publish"
   },
   "keywords": [
     "color",
     "lab",
-    "colors",
-    "palette"
+    "colors"
   ],
   "author": "Seniru Pasan",
   "license": "MIT",
