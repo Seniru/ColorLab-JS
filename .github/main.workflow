@@ -1,4 +1,4 @@
-workflow "Build, test and publish on master" {
+workflow "Build" {
   resolves = ["Publish"]
   on = "push"
 }
