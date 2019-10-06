@@ -5,7 +5,7 @@ noce_js:
   - node
 
 install:
-  - npm ci
+  - npm i
 
 script:
  - npm run test:coveralls
