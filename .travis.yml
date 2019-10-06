@@ -1,2 +1,11 @@
+sudo: false
 language: node_js
-script: 'true'
+
+noce_js:
+  - node
+
+install:
+  - npm ci
+
+script:
+ - npm run test:coveralls

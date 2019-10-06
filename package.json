@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "test:coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coverage": "istanbul cover _mocha -x test/*",
     "build": "npm test & npm link & npm pack"
   },
   "keywords": [
@@ -15,6 +17,8 @@
   "author": "Seniru Pasan",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^3.0.6",
+    "istanbul": "^0.4.5",
     "mocha": "^6.2.0"
   },
   "directories": {
