@@ -25,7 +25,7 @@ jobs:
      name: Publish
      needs: build
      runs-on: ubunutu-latest
-     steps 
+     steps:
       - run |
          npm login --registry=https://npm.pkg.github.com/
          npm publish
