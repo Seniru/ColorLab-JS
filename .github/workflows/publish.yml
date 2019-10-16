@@ -19,11 +19,5 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm run test:coveralls
-
-  publish:
-     name: Publish
-     needs: build
-     runs-on: ubunutu-latest
-     steps:
-       - run: npm login --registry=https://npm.pkg.github.com/
-       - run: npm publish
+      - run: npm login --registry=https://npm.pkg.github.com/
+      - run: npm publish
