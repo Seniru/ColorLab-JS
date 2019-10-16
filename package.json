@@ -39,5 +39,6 @@
   "bugs": {
     "url": "https://github.com/Seniru/ColorLab/issues"
   },
-  "homepage": "https://github.com/Seniru/ColorLab#readme"
+  "homepage": "https://github.com/Seniru/ColorLab#readme",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
