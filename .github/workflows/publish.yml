@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run |
+        run: |
           npm ci
           npm run test:coveralls
 
@@ -26,6 +26,6 @@ jobs:
      needs: build
      runs-on: ubunutu-latest
      steps:
-      - run |
+       run: |
          npm login --registry=https://npm.pkg.github.com/
          npm publish
