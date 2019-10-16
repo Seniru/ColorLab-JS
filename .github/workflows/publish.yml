@@ -10,14 +10,22 @@ on:
 
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
-      - run: npm run test:coveralls
+      - run |
+          npm ci
+          npm run test:coveralls
 
-
-  
+  publish:
+     name: Publish
+     needs: build
+     runs-on: ubunutu-latest
+     steps 
+      - run |
+         npm login --registry=https://npm.pkg.github.com/
+         npm publish
