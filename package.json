@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "test:coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test:codecov": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./node_modules/.bin/codecov",
     "coverage": "istanbul cover _mocha -x test/*",
-    "build": "npm run test:coveralls & npm link"
+    "build": "npm run test:codecov & npm link"
   },
   "keywords": [
     "color",
@@ -17,7 +17,7 @@
   "author": "Seniru Pasan",
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^3.0.6",
+    "codecov": "^3.6.1",
     "istanbul": "^0.4.5",
     "mocha": "^6.2.1"
   },
