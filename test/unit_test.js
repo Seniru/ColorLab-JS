@@ -44,6 +44,11 @@ describe("Inverting colours", () => {
   it("Should invert white to black (instance method)", () => {
     assert.deepEqual(cl.colors.WHITE.invert(), cl.colors.BLACK);
   });
+  it("Should throw a TypeError if passed argument is not a Color object", () => {
+      for (let obj of ["string", "#fff", 0xffffff, null, undefined, NaN, function() {}]) {
+          assert.throws(() => cl.invert(obj), TypeError, "Expected type of 'Color', instead got " + typeof obj);
+      }
+  })
   it("should pass these random tests", () => {
     assert.deepEqual(cl.invert(new cl.Color(0xFF0000)), new cl.Color(0x00FFFF));
     assert.deepEqual(cl.invert(new cl.Color("#111111")), new cl.Color("#EEE"));
