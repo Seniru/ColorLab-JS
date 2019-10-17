@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "test:codecov": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codecov",
+    "test:codecov": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codecov -t :c7bb51f7-780a-4d1a-b2b2-44c992d4b783",
     "coverage": "istanbul cover _mocha -x test/*",
-    "build": "npm run test:coveralls & npm link"
+    "build": "npm run test:codecov & npm link"
   },
   "keywords": [
     "color",
