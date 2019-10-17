@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Build and test
 
 on:
   pull_request:
@@ -19,5 +19,4 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm run test:coveralls
-      - run: npm login --registry=https://npm.pkg.github.com/
-      - run: npm publish
+      
