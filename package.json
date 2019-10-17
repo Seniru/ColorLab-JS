@@ -1,13 +1,13 @@
 {
   "name": "colorlab-js",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "A javascript library which could do many color manipulations",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "test:coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "coverage": "istanbul cover _mocha -x test/*",
-    "build": "npm run test:coveralls & npm link & npm version patch"
+    "build": "npm run test:coveralls & npm link"
   },
   "keywords": [
     "color",
