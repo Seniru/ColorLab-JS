@@ -21,6 +21,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+const {hexToRGB, hslToRGB, getHex, rgbToHsl} = require('./conversions');
 
 /**
   Class which defines methods to create, store and manipulate colors
@@ -84,13 +85,15 @@ class Color {
   */
   toString(channel = "") {
     switch (channel.toLowerCase()) {
-      case "rgb":
-        return `rgb(${this.r}, ${this.g}, ${this.b})`;
-        // TODO: Add support to convert into other channels
-      case "hex":
-      case "hexadeimal":
-      default:
-        return `#${getHex(this.r)}${getHex(this.g)}${getHex(this.b)}`;
+        case "rgb":
+            return `rgb(${this.r}, ${this.g}, ${this.b})`;
+        case "hsl":
+            let hsl = rgbToHsl(this.r, this.g, this.b);
+            return `hsl(${hsl.h}), ${hsl.s}, ${hsl.l}`
+        case "hex":
+        case "hexadeimal":
+        default:
+            return `#${getHex(this.r)}${getHex(this.g)}${getHex(this.b)}`;
     }
   }
 
@@ -99,7 +102,6 @@ class Color {
   }
 }
 
-/* --- Utility functions ---- */
 /**
   A utility function. Inverts the given color.
   @param col {Color} The input color
@@ -107,33 +109,14 @@ class Color {
   @throws {TypeError} If `col` is not of type `Color`
 */
 function invert(col) {
-  if (col instanceof Color) {
-    return new Color({
-      r: 255 - col.getR(),
-      g: 255 - col.getG(),
-      b: 255 - col.getB()
-    })
-  }
-  throw TypeError("Expected type of 'Color', instead got " + typeof col);
-}
-
-function hexToRGB(hex) {
-  return {
-    r: (hex >> 16) & 0xFF,
-    g: (hex >> 8) & 0xFF,
-    b: hex & 0xFF,
-  }
-}
-
-/* ---- Supporter functions ---- */
-/**
-`A supporter function. Gives the hexadecimal value of the given decimal
-@param dec {number} The decimal
-@returns {number} The hexadeciaml version of the given decimal`
-*/
-function getHex(dec) {
-  let res = dec.toString(16);
-  return (res.length == 1 ? res + res : res).toUpperCase();
+    if (col instanceof Color) {
+        return new Color({
+            r: 255 - col.getR(),
+            g: 255 - col.getG(),
+            b: 255 - col.getB()
+        })
+    }
+    throw TypeError("Expected type of 'Color', instead got " + typeof col);
 }
 
 /**
